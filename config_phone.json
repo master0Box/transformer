@@ -35,7 +35,7 @@
       "mtu": 9000,
       "auto_route": true,
       "sniff": true,
-      "stack": "gVisor",
+      "stack": "gvisor",
       "sniff_override_destination": false,
       "platform": {
         "http_proxy": {
