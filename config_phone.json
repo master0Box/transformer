@@ -39,10 +39,7 @@
       "sniff_override_destination": false,
       "inet4_route_exclude_address": [
         "192.168.0.0/16",
-        "127.0.0.0/8",
-        "172.16.0.0/12",
-        "17.0.0.0/8",
-        "224.0.0.0/4"
+        "127.0.0.0/8"
       ],
       "platform": {
         "http_proxy": {
