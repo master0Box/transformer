@@ -37,7 +37,6 @@
       "auto_route": true,
       "sniff": true,
       "stack": "mixed",
-      "sniff_override_destination": true,
       "platform": {
         "http_proxy": {
           "enabled": true,
