@@ -37,10 +37,7 @@
       "sniff": true,
       "stack": "gvisor",
       "sniff_override_destination": false,
-      "inet4_route_exclude_address": [
-        "192.168.0.0/16",
-        "127.0.0.0/8"
-      ],
+      "inet4_route_exclude_address": "192.168.0.0/16",
       "platform": {
         "http_proxy": {
           "enabled": false,
