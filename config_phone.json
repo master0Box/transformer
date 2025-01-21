@@ -40,7 +40,7 @@
       "auto_route": true,
       "sniff": true,
       "stack": "system",
-      "sniff_override_destination": true,
+      "sniff_override_destination": false,
       "inet4_route_exclude_address": "192.168.0.0/16",
       "platform": {
         "http_proxy": {
