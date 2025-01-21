@@ -42,7 +42,6 @@
       "stack": "system",
       "sniff_override_destination": true,
       "inet4_route_exclude_address": "192.168.0.0/16",
-      "strict_route": true,
       "platform": {
         "http_proxy": {
           "enabled": false,
