@@ -23,12 +23,10 @@
       { "clash_mode": "direct", "server": "localDns" },
       { "clash_mode": "global", "server": "proxyDns" },
       { "rule_set": "geosite-cn", "server": "localDns" },
-      { "rule_set": "geosite-category-ads-all", "server": "block" },
-      { "rule_set": "geosite-geolocation-!cn", "server": "proxyDns" }
+      { "rule_set": "geosite-geolocation-!cn", "server": "proxyDns" },
+      { "rule_set": "geosite-category-ads-all", "server": "block" }
     ],
     "final": "proxyDns",
-    "disable_cache": false,
-    "disable_expire": false,
     "strategy": "ipv4_only "
   },
 
