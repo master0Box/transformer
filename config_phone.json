@@ -36,11 +36,10 @@
     {
       "type": "tun",
       "address": "172.19.0.1/30",
-      "mtu": 1400,
+      "mtu": 1420,
       "auto_route": true,
       "sniff": true,
-      "stack": "system",
-      "sniff_timeout": "300ms",
+      "stack": "mixed",
       "inet4_route_exclude_address": "192.168.0.0/16",
       "platform": {
         "http_proxy": {
