@@ -36,7 +36,7 @@
     {
       "type": "tun",
       "address": "172.19.0.1/30",
-      "mtu": 1420,
+      "mtu": 1448,
       "auto_route": true,
       "sniff": true,
       "stack": "mixed",
