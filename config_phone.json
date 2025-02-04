@@ -39,8 +39,9 @@
       "address": "172.19.0.1/30",
       "mtu": 1420,
       "auto_route": true,
-      "stack": "mixed",
-      "route_exclude_address": "192.168.0.0/16",
+      "stack": "gvisor",
+      "strict_route": true,
+      "route_exclude_address": ["192.168.0.0/16", fd00::1/126],
       "platform": {
         "http_proxy": {
           "enabled": false,
