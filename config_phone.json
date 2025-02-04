@@ -30,7 +30,7 @@
     "disable_cache": false,
     "disable_expire": false,
     "independent_cache": false,
-    "strategy": "prefer_ipv4"
+    "strategy": "ipv4_only"
   },
 
     "inbounds": [
