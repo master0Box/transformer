@@ -22,8 +22,8 @@
       { "outbound": "any", "server": "defaultDns", "disable_cache": true },
       { "clash_mode": "direct", "server": "localDns" },
       { "clash_mode": "global", "server": "proxyDns" },
-      { "rule_set": "geosite-geolocation-!cn", "server": "proxyDns"},
       { "rule_set": "geosite-cn", "server": "localDns" },
+      { "rule_set": "geosite-geolocation-!cn", "server": "proxyDns"},
       { "rule_set": "geosite-category-ads-all", "action": "reject" }    
     ],
     "final": "proxyDns",
@@ -37,7 +37,7 @@
     {
       "type": "tun",
       "address": ["172.19.0.1/30"],
-      "mtu": 1420,
+      "mtu": 1500,
       "stack": "mixed",
       "auto_route": true,
       "strict_route": true,
