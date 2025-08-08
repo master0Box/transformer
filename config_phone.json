@@ -24,7 +24,6 @@
       { "clash_mode": "global", "server": "proxyDns" },
       { "rule_set": "geosite-cn", "server": "localDns" },
       { "rule_set": "geosite-geolocation-!cn", "server": "proxyDns"},
-      { "rule_set": "geosite-category-ads-all", "action": "reject" }    
     ],
     "final": "proxyDns",
     "disable_cache": false,
