@@ -15,7 +15,7 @@
   "dns": {
     "servers": [
       {"tag": "proxyDns", "type": "https", "server": "dns.google", "domain_resolver": "localDns", "detour": "🚀 节点选择"},
-      {"tag": "localDns", "type": "udp", "server": "119.29.29.29", "detour": "🎯 全球直连"},
+      {"tag": "localDns", "type": "udp", "server": "223.5.5.5", "detour": "🎯 全球直连"},
       {"tag": "defaultDns", "type": "local", "detour": "🎯 全球直连"}
     ],
     "rules": [
