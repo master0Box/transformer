@@ -14,12 +14,12 @@
   
   "dns": {
     "servers": [
-      {"tag": "proxyDns", "type": "https", "server": "dns.google", "domain_resolver": "localDns", "detour": "🚀 节点选择"},
-      {"tag": "localDns", "type": "udp", "server": "223.5.5.5", "detour": "🎯 全球直连"},
+      {"tag": "proxyDns", "type": "https", "server": "dns.google", "domain_resolver": "localdns", "detour": "🚀 节点选择"},
+      {"tag": "localdns", "type": "udp", "server": "223.5.5.5", "detour": "🎯 全球直连"},
       {"tag": "defaultDns", "type": "local", "detour": "🎯 全球直连"}
     ],
     "rules": [
-      { "clash_mode": "direct", "server": "localDns" },
+      { "clash_mode": "direct", "server": "localdns" },
       { "clash_mode": "global", "server": "proxyDns" },
       { "rule_set": "geosite-cn", "server": "defaultDns" },
       { "rule_set": "geosite-geolocation-!cn", "server": "proxyDns" }
