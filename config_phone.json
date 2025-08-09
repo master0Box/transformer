@@ -14,17 +14,17 @@
   
   "dns": {
     "servers": [
-      {"tag": "proxyDns", "type": "https", "server": "dns.google", "domain_resolver": "localdns", "detour": "🚀 节点选择"},
+      {"tag": "proxydns", "type": "https", "server": "dns.google", "domain_resolver": "localdns", "detour": "🚀 节点选择"},
       {"tag": "localdns", "type": "udp", "server": "223.5.5.5", "detour": "🎯 全球直连"},
-      {"tag": "defaultDns", "type": "local", "detour": "🎯 全球直连"}
+      {"tag": "defaultdns", "type": "local", "detour": "🎯 全球直连"}
     ],
     "rules": [
       { "clash_mode": "direct", "server": "localdns" },
-      { "clash_mode": "global", "server": "proxyDns" },
-      { "rule_set": "geosite-cn", "server": "defaultDns" },
-      { "rule_set": "geosite-geolocation-!cn", "server": "proxyDns" }
+      { "clash_mode": "global", "server": "proxydns" },
+      { "rule_set": "geosite-cn", "server": "defaultdns" },
+      { "rule_set": "geosite-geolocation-!cn", "server": "proxydns" }
     ],
-    "final": "proxyDns",
+    "final": "proxydns",
     "disable_cache": false,
     "disable_expire": false,
     "independent_cache": false,
@@ -63,7 +63,7 @@
   "route": {
         "auto_detect_interface": true,
         "final": "🐠 漏网之鱼",
-        "default_domain_resolver": {"server": "defaultDns", "strategy": "ipv4_only", "rewrite_ttl": 60, "client_subnet": "1.1.1.1" },
+        "default_domain_resolver": {"server": "defaultdns", "strategy": "ipv4_only", "rewrite_ttl": 60, "client_subnet": "1.1.1.1" },
     "rules": [
       { "action": "sniff" },
       { "type": "logical", "mode": "or", "rules": [{ "port": 53 }, { "protocol": "dns" }], "action": "hijack-dns" },
