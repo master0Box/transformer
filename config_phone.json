@@ -21,6 +21,7 @@
     "rules": [
       { "clash_mode": "direct", "server": "localdns" },
       { "clash_mode": "global", "server": "proxydns" },
+      { "domain_suffix": ["xn--ngstr-lra8j.com", "services.googleapis.cn"], "server": "proxydns" },
       { "rule_set": "geosite-cn", "server": "defaultdns" },
       { "rule_set": "geosite-geolocation-!cn", "server": "proxydns" }
     ],
