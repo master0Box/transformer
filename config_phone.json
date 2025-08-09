@@ -14,12 +14,11 @@
   
   "dns": {
     "servers": [
-      {"tag": "proxyDns", "address": "8.8.8.8", "address_resolver": "defaultDns", "detour": "🚀 节点选择"},
-      {"tag": "localDns", "address": "119.29.29.29", "detour": "🎯 全球直连"},
-      {"tag": "defaultDns", "address": "119.29.29.29", "detour": "🎯 全球直连"}
+      {"tag": "proxyDns", "type": "https", "server": "dns.google", "domain_resolver": "localDns", "detour": "🚀 节点选择"},
+      {"tag": "localDns", "type": "udp", "server": "119.29.29.29", "detour": "🎯 全球直连"},
+      {"tag": "defaultDns", "type": "local", "detour": "🎯 全球直连"}
     ],
     "rules": [
-      { "outbound": "any", "server": "defaultDns", "disable_cache": false },
       { "clash_mode": "direct", "server": "localDns" },
       { "clash_mode": "global", "server": "proxyDns" },
       { "rule_set": "geosite-cn", "server": "localDns" },
@@ -38,6 +37,7 @@
       "address": ["172.19.0.1/30"],
       "mtu": 1500,
       "stack": "gvisor",
+      "strict_route": true,
       "auto_route": true
       }
   ],
@@ -63,6 +63,7 @@
   "route": {
         "auto_detect_interface": true,
         "final": "🐠 漏网之鱼",
+        "default_domain_resolver": {"server": "local", "rewrite_ttl": 60, "client_subnet": "1.1.1.1", "strategy": "ipv4_only" }
     "rules": [
       { "action": "sniff" },
       { "type": "logical", "mode": "or", "rules": [{ "port": 53 }, { "protocol": "dns" }], "action": "hijack-dns" },
@@ -70,15 +71,15 @@
       { "clash_mode": "global", "outbound": "GLOBAL" },
       { "domain": ["clash.razord.top", "yacd.metacubex.one", "yacd.haishan.me", "d.metacubex.one"], "outbound": "🎯 全球直连" },
       { "domain_suffix": ["xn--ngstr-lra8j.com", "services.googleapis.cn", "gstatic.com"], "outbound": "🚀 节点选择" },
-      { "domain_suffix": ["miui.com", "miwifi.com", "xiami.com", "xiaomicp.com", "xiami.net", "xiaomicp.com"], "outbound": "🎯 全球直连" },      
-
+      { "domain_suffix": ["safebrowsing.urlsec.qq.com", "safebrowsing.googleapis.com", "gstatic.com"], "outbound": "🎯 全球直连" },
+      { "domain_suffix": ["miui.com", "miwifi.com", "xiami.com", "xiaomicp.com", "xiami.net", "xiaomicp.com"], "outbound": "🎯 全球直连" },
+      { "rule_set": ["geosite-private", "geoip-private"], "outbound": "🎯 全球直连" },
       { "rule_set": "geosite-chat", "outbound": "🤖 OpenAI" },
       { "rule_set": ["geoip-google", "geosite-google"], "outbound": "🍀 Google" },
       { "rule_set": ["geoip-apple", "geosite-apple"], "outbound": "🍏 Apple" },
       { "rule_set": ["geoip-netflix", "geosite-netflix"], "outbound": "🎥 Netflix" },
       { "rule_set": ["geoip-telegram", "geosite-telegram"], "outbound": "📲 Telegram" },
       { "rule_set": "geosite-geolocation-!cn", "outbound": "🚀 节点选择" },
-      { "rule_set": ["geosite-private", "geoip-private"], "outbound": "🎯 全球直连" },
       { "rule_set": ["geoip-cn", "geosite-cn"], "outbound": "🎯 全球直连" }
     ],
     
