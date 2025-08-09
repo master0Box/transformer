@@ -63,7 +63,7 @@
   "route": {
         "auto_detect_interface": true,
         "final": "🐠 漏网之鱼",
-        "default_domain_resolver": {"server": "localDns", "rewrite_ttl": 60, "strategy": "ipv4_only" },
+        "default_domain_resolver": {"server": "localDns", "strategy": "ipv4_only" },
     "rules": [
       { "action": "sniff" },
       { "type": "logical", "mode": "or", "rules": [{ "port": 53 }, { "protocol": "dns" }], "action": "hijack-dns" },
