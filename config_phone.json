@@ -15,8 +15,8 @@
   "dns": {
     "servers": [
       {"tag": "proxydns", "type": "https", "server": "dns.google", "domain_resolver": "defaultdns", "detour": "🚀 节点选择"},
-      {"tag": "localdns", "type": "udp", "server": "223.5.5.5", "domain_resolver": "defaultdns"},
-      {"tag": "defaultdns", "type": "local", "detour": "🎯 全球直连"}
+      {"tag": "localdns", "type": "udp", "server": "119.29.29.29", "domain_resolver": "defaultdns"},
+      {"tag": "defaultdns", "type": "local"}
     ],
     "rules": [
       { "clash_mode": "direct", "server": "localdns" },
@@ -63,7 +63,7 @@
   "route": {
         "auto_detect_interface": true,
         "final": "🐠 漏网之鱼",
-        "default_domain_resolver": {"server": "defaultdns", "strategy": "ipv4_only", "rewrite_ttl": 60, "client_subnet": "1.1.1.1" },
+        "default_domain_resolver": {"server": "localdns", "strategy": "ipv4_only", "rewrite_ttl": 60 },
     "rules": [
       { "action": "sniff" },
       { "type": "logical", "mode": "or", "rules": [{ "port": 53 }, { "protocol": "dns" }], "action": "hijack-dns" },
@@ -71,7 +71,7 @@
       { "clash_mode": "global", "outbound": "GLOBAL" },
       { "domain": ["clash.razord.top", "yacd.metacubex.one", "yacd.haishan.me", "d.metacubex.one"], "outbound": "🎯 全球直连" },
       { "domain_suffix": ["xn--ngstr-lra8j.com", "services.googleapis.cn", "gstatic.com"], "outbound": "🚀 节点选择" },
-      { "domain_suffix": ["safebrowsing.urlsec.qq.com", "safebrowsing.googleapis.com", "gstatic.com"], "outbound": "🎯 全球直连" },
+      { "domain_suffix": ["safebrowsing.urlsec.qq.com", "safebrowsing.googleapis.com"], "outbound": "🎯 全球直连" },
       { "domain_suffix": ["miui.com", "miwifi.com", "xiami.com", "xiaomicp.com", "xiami.net", "xiaomicp.com"], "outbound": "🎯 全球直连" },
       { "rule_set": ["geosite-private", "geoip-private"], "outbound": "🎯 全球直连" },
       { "rule_set": "geosite-chat", "outbound": "🤖 OpenAI" },
