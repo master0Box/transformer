@@ -7,8 +7,7 @@
   
   "experimental": {
     "cache_file": {
-      "enabled": true,
-      "store_fakeip": false
+      "enabled": true
     }
   },
   
@@ -19,6 +18,7 @@
         "type": "h3",
         "server": "cloudflare-dns.com",
         "server_port": 443,
+        "domain_resolver": "defaultdns",
         "detour": "🚀 节点选择"
       },
       {
@@ -26,12 +26,11 @@
         "type": "https",
         "server": "dns.alidns.com",
         "server_port": 443,
-        "detour": "🎯 全球直连"
+        "domain_resolver": "defaultdns"
       },
       {
         "tag": "defaultdns",
-        "type": "local",
-        "detour": "🎯 全球直连"
+        "type": "local"
       }
     ],
     "rules": [
@@ -85,6 +84,7 @@
     "auto_detect_interface": true,
     "final": "🐠 漏网之鱼",
     "rules": [
+      { "action": "sniff" },
       { "protocol": "dns", "action": "hijack-dns" },
       { "clash_mode": "direct", "outbound": "🎯 全球直连" },
       { "clash_mode": "global", "outbound": "GLOBAL" },
