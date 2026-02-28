@@ -7,6 +7,14 @@
   "experimental": {
     "cache_file": {
       "enabled": true
+    },
+    "clash_api": {
+      "external_controller": "0.0.0.0:9095",
+      "external_ui": "/etc/momo/run/ui",
+      "external_ui_download_url": "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "🎯 全球直连",
+      "secret": "",
+      "default_mode": "rule"
     }
   },
   "dns": {
@@ -32,6 +40,7 @@
       }
     ],
     "rules": [
+      { "query_type": "HTTPS", "action": "reject" },
       { "clash_mode": "direct", "server": "localdns" },
       { "clash_mode": "global", "server": "proxydns" },
       { "domain_suffix": ["xn--ngstr-lra8j.com", "services.googleapis.cn", "gstatic.com"], "server": "proxydns" },
@@ -101,6 +110,7 @@
       { "rule_set": "geosite-telegram", "outbound": "📲 Telegram" },
       { "rule_set": "geosite-geolocation-!cn", "outbound": "🚀 节点选择" },
       { "rule_set": "geosite-cn", "outbound": "🎯 全球直连" },
+      { "action": "resolve" },
       { "rule_set": "geoip-private", "outbound": "🎯 全球直连" },
       { "rule_set": "geoip-google", "outbound": "🍀 Google" },
       { "rule_set": "geoip-apple", "outbound": "🍏 Apple" },
