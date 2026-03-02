@@ -21,7 +21,7 @@
     "servers": [
       {
         "tag": "proxydns",
-        "type": "tcp",
+        "type": "https",
         "server": "8.8.8.8",
         "detour": "🚀 节点选择"
       },
