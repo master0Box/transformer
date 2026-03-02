@@ -21,18 +21,15 @@
     "servers": [
       {
         "tag": "proxydns",
-        "type": "https",
-        "server": "cloudflare-dns.com",
-        "server_port": 443,
-        "domain_resolver": "defaultdns",
+        "type": "tcp",
+        "server": "8.8.8.8",
         "detour": "🚀 节点选择"
       },
       {
         "tag": "localdns",
-        "type": "https",
-        "server": "dns.alidns.com",
-        "server_port": 443,
-        "domain_resolver": "defaultdns"
+        "type": "udp",
+        "server": "223.5.5.5",
+        "detour": "direct"
       },
       {
         "tag": "defaultdns",
