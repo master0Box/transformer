@@ -29,7 +29,7 @@
         "tag": "localdns",
         "type": "udp",
         "server": "223.5.5.5",
-        "detour": "direct"
+        "detour": "🎯 全球直连"
       },
       {
         "tag": "defaultdns",
