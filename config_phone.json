@@ -89,7 +89,6 @@
     { "tag": "📲 Telegram", "type": "selector", "outbounds": ["🚀 节点选择", "♻️ 自动选择", "🔯 香港自动", "🇨🇳 台湾自动", "🇭🇰 香港节点", "🇯🇵 日本节点", "🐸 手动切换"] },
     { "tag": "🍏 Apple", "type": "selector", "outbounds": ["🎯 全球直连", "🇭🇰 香港节点", "🇯🇵 日本节点"] },
     { "tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🚀 节点选择", "🎯 全球直连"] },
-    { "tag": "🛑 广告拦截", "type": "block" }, 
     { "tag": "GLOBAL", "type": "selector", "outbounds": ["{all}"] },
     { "tag": "🎯 全球直连", "type": "direct" }
   ],
@@ -102,7 +101,7 @@
       { "protocol": "dns", "action": "hijack-dns" },
       { "clash_mode": "direct", "outbound": "🎯 全球直连" },
       { "clash_mode": "global", "outbound": "GLOBAL" },
-      { "rule_set": "geosite-category-ads-all", "outbound": "🛑 广告拦截" },
+      { "rule_set": "geosite-category-ads-all", "action": "reject" },
       { "domain": ["clash.razord.top", "yacd.metacubex.one", "yacd.haishan.me", "d.metacubex.one"], "outbound": "🎯 全球直连" },
       { "domain_suffix": ["xn--ngstr-lra8j.com", "services.googleapis.cn", "gstatic.com"], "outbound": "🚀 节点选择" },
       { "domain_suffix": ["safebrowsing.urlsec.qq.com", "safebrowsing.googleapis.com", "miui.com", "miwifi.com", "xiami.com", "xiaomicp.com", "xiami.net"], "outbound": "🎯 全球直连" },
