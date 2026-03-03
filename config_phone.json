@@ -34,7 +34,7 @@
         "server": "dns.alidns.com",
         "server_port": 443,
         "path": "/dns-query",
-        "domain_resolver": "local"
+        "domain_resolver": "defaultdns"
       },
       {
         "tag": "defaultdns",
