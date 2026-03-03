@@ -93,7 +93,7 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "default_domain_resolver": "defaultdns",
+    "default_domain_resolver": "localdns",
     "final": "🐠 漏网之鱼",
     "rules": [
       { "action": "sniff" },
