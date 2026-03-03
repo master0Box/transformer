@@ -22,13 +22,17 @@
       {
         "tag": "proxydns",
         "type": "https",
-        "server": "8.8.8.8",
+        "server": "dns.google",
+        "server_port": 443,
+        "path": "/dns-query",
+        "domain_resolver": "localdns",
         "detour": "🚀 节点选择"
       },
       {
         "tag": "localdns",
-        "type": "udp",
-        "server": "223.5.5.5"
+        "type": "https",
+        "server": "dns.alidns.com",
+        "domain_resolver": "defaultdns"
       },
       {
         "tag": "defaultdns",
@@ -48,7 +52,7 @@
     "disable_expire": false,
     "independent_cache": true,
     "reverse_mapping": true,
-    "strategy": "ipv4_only"
+    "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
