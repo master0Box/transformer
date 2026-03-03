@@ -13,7 +13,7 @@
     "external_ui": "/etc/momo/run/ui",
     "external_ui_download_url": "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip",
     "external_ui_download_detour": "🎯 全球直连",
-    "secret": "",
+    "secret": "123456",
     "default_mode": "rule"
     }
   },
@@ -30,9 +30,11 @@
       },
       {
         "tag": "localdns",
-        "type": "udp",
-        "server": "119.29.29.29",
-        "server_port": 53
+        "type": "https",
+        "server": "dns.alidns.com",
+        "server_port": 443,
+        "path": "/dns-query",
+        "domain_resolver": "local"
       },
       {
         "tag": "defaultdns",
@@ -40,12 +42,12 @@
       }
     ],
     "rules": [
-      { "query_type": ["HTTPS", 65], "action": "reject" },
       { "clash_mode": "direct", "server": "localdns" },
       { "clash_mode": "global", "server": "proxydns" },
+      { "query_type": ["HTTPS", 65], "action": "reject" },
       { "domain_suffix": ["xn--ngstr-lra8j.com", "services.googleapis.cn", "gstatic.com"], "server": "proxydns" },
-      { "rule_set": ["geosite-cn", "geosite-private"], "server": "localdns" },
-      { "rule_set": "geosite-geolocation-!cn", "server": "proxydns" }
+      { "rule_set": "geosite-geolocation-!cn", "server": "proxydns" },
+      { "rule_set": ["geosite-cn", "geosite-private"], "server": "localdns" }
     ],
     "final": "proxydns",
     "disable_cache": false,
