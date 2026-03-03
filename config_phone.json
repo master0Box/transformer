@@ -54,7 +54,8 @@
     "disable_expire": false,
     "independent_cache": true,
     "reverse_mapping": true,
-    "strategy": "prefer_ipv4"
+    "strategy": "prefer_ipv4",
+    "cache_capacity": 1024
   },
   "inbounds": [
     {
