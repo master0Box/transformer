@@ -30,9 +30,9 @@
       },
       {
         "tag": "localdns",
-        "type": "https",
-        "server": "dns.alidns.com",
-        "domain_resolver": "defaultdns"
+        "type": "udp",
+        "server": "223.5.5.5",
+        "server_port": 53
       },
       {
         "tag": "defaultdns",
