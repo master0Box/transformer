@@ -128,7 +128,6 @@
     "rule_set": [
       { "tag": "geosite-fakeipfilter", "type": "remote", "format": "source", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/fakeipfilter.json", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-chat", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.srs", "download_detour": "🎯 全球直连" },
-      { "tag": "geosite-youtube", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-google", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/google.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-telegram", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/telegram.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-netflix", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/netflix.srs", "download_detour": "🎯 全球直连" },
