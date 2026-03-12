@@ -138,7 +138,7 @@
       { "tag": "geosite-private", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/private.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-category-ads-all", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs", "download_detour": "🎯 全球直连" },      
       { "tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs", "download_detour": "🎯 全球直连" },
-      { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://github.com/qljsyph/ruleset-icon/raw/refs/heads/main/sing-box/geoip/China-ASN-combined-ip.srs", "download_detour": "🎯 全球直连" }
+      { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://github.com/qljsyph/ruleset-icon/raw/refs/heads/main/sing-box/geoip/China-ASN-combined-ip.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geoip-private", "type": "remote", "format": "binary", "url": "https://mirror.boxgate.dpdns.org/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/private.srs", "download_detour": "🎯 全球直连" }
     ]
   }
