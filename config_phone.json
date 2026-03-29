@@ -99,6 +99,7 @@
 { "tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🚀 节点选择", "🎯 全球直连"] },
 { "tag": "GLOBAL", "type": "selector", "outbounds": ["{all}"] },
 { "tag": "🎯 全球直连", "type": "direct" }
+],
 "route": {
     "auto_detect_interface": true,
     "default_domain_resolver": "localdns",
