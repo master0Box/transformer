@@ -91,35 +91,27 @@
       { "action": "sniff" },
       { "protocol": "dns", "action": "hijack-dns" },
       
-      // 1. 模式控制与控制面板防劫持
       { "clash_mode": "direct", "outbound": "🎯 全球直连" },
       { "clash_mode": "global", "outbound": "GLOBAL" },
       { "domain": ["clash.razord.top", "yacd.metacubex.one", "d.metacubex.one", "zashboard"], "outbound": "🎯 全球直连" },
 
-      // 2. 局域网与私有地址放行
       { "ip_is_private": true, "outbound": "🎯 全球直连" },
       { "rule_set": ["geosite-private", "geoip-private"], "outbound": "🎯 全球直连" },
 
-      // 3. 广告拦截 (基于二进制表)
       { "rule_set": "geosite-category-ads-all", "action": "reject" },
 
-      // 4. 定制化设备厂商白名单 (针对 Xiaomi/Redmi 终端防止云服务断连)
       { "domain_suffix": ["miui.com", "miwifi.com", "xiaomicp.com", "safebrowsing.googleapis.com"], "outbound": "🎯 全球直连" },
 
-      // 5. 核心海外服务独立引流 (由上至下匹配，高频应用优先)
       { "rule_set": "geosite-chat", "outbound": "🤖 OpenAI" },
       { "rule_set": "geosite-google", "outbound": "🍀 Google" },
       { "rule_set": "geosite-apple", "outbound": "🍏 Apple" },
       { "rule_set": "geosite-netflix", "outbound": "🎥 Netflix" },
       { "rule_set": ["geosite-telegram", "geoip-telegram"], "outbound": "📲 Telegram" },
 
-      // 6. 大陆流量精准直连防绕路
       { "rule_set": ["geosite-cn", "geoip-cn"], "outbound": "🎯 全球直连" },
 
-      // 7. 剩余海外流量通用兜底
       { "rule_set": "geosite-geolocation-!cn", "outbound": "🚀 节点选择" },
       
-      // 8. 解析延迟策略 (仅对未命中以上 Geosite 的流量发起 IP 查询)
       { "action": "resolve" }
     ],
     "rule_set": [
