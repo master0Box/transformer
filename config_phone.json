@@ -83,7 +83,7 @@
     }
   ],
 "outbounds": [
-    { "tag": "🐸 手动切换", "type": "selector", "outbounds": ["{all}"] },
+    { "tag": "🐸 手动切换", "type": "selector", "outbounds": ["{all}"], "url": "https://www.google.com/generate_204" },
     { "tag": "🇭🇰 香港节点", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇭🇰|HK|hk|香港|港|HongKong"] }] },
     { "tag": "🇯🇵 日本节点", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇯🇵|JP|jp|日本|日|Japan"] }] },
     { "tag": "🇨🇳 台湾自动", "type": "urltest", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇨🇳|TW|tw|台湾|台|TaiWan|Taiwan"] }], "url": "https://www.google.com/generate_204", "interval": "30m", "tolerance": 50 },
