@@ -52,7 +52,6 @@
       { "clash_mode": "global", "server": "proxydns" },
       { "query_type": ["HTTPS", 65], "action": "reject" },
       { "domain_suffix": ["xn--ngstr-lra8j.com", "services.googleapis.cn", "gstatic.com"], "server": "proxydns" },
-      { "rule_set": "geosite-fakeipfilter", "server": "localdns" },
       { "rule_set": ["geosite-cn", "geosite-private"], "server": "localdns" },
       { "query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1 }
     ],
