@@ -34,7 +34,8 @@
         "server": "doh.pub",
         "server_port": 443,
         "path": "/dns-query",
-        "domain_resolver": "defaultdns"
+        "domain_resolver": "defaultdns",
+        "strategy": "ipv4_only"
       },
       {
         "tag": "defaultdns",
