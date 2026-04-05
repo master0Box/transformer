@@ -110,36 +110,25 @@
       { "clash_mode": "direct", "outbound": "🎯 全球直连" },
       { "clash_mode": "global", "outbound": "GLOBAL" },
       
-      // 1. 本地面板与局域网直连 (最高优先级)
       { "domain": ["clash.razord.top", "yacd.metacubex.one", "d.metacubex.one", "zashboard"], "outbound": "🎯 全球直连" },
       { "ip_is_private": true, "outbound": "🎯 全球直连" },
       { "rule_set": ["geosite-private", "geoip-private"], "outbound": "🎯 全球直连" },
 
-      // 2. 广告拦截
       { "rule_set": "geosite-category-ads-all", "action": "reject" },
 
-      // 3. 厂商服务直连 (防止下载大文件消耗代理流量)
       { "domain_suffix": ["miui.com", "miwifi.com", "xiaomicp.com", "safebrowsing.googleapis.com"], "outbound": "🎯 全球直连" },
       { "rule_set": "geosite-apple", "outbound": "🍏 Apple" },
 
-      // 4. 自定义应用分流 (域名级)
       { "rule_set": "geosite-chat", "outbound": "🤖 OpenAI" },
       { "rule_set": "geosite-google", "outbound": "🍀 Google" },
       { "rule_set": "geosite-netflix", "outbound": "🎥 Netflix" },
       { "rule_set": "geosite-telegram", "outbound": "📲 Telegram" },
 
-      // 5. 国内域名直连白名单
       { "rule_set": "geosite-cn", "outbound": "🎯 全球直连" },
-
-      // -----------------------------------------------------------
-      // [核心屏障] 仅当以上"域名规则"均未命中时，才触发 DNS 解析获取 IP
-      // -----------------------------------------------------------
       { "action": "resolve" },
 
-      // 6. 自定义应用分流 (IP级)
       { "rule_set": "geoip-telegram", "outbound": "📲 Telegram" },
 
-      // 7. 国内 IP 直连白名单
       { "rule_set": "geoip-cn", "outbound": "🎯 全球直连" }
     ],
     "rule_set": [
