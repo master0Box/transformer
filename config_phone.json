@@ -34,8 +34,7 @@
         "server": "doh.pub",
         "server_port": 443,
         "path": "/dns-query",
-        "domain_resolver": "defaultdns",
-        "strategy": "ipv4_only"
+        "domain_resolver": "defaultdns"
       },
       {
         "tag": "defaultdns",
@@ -61,7 +60,7 @@
     "disable_expire": false,
     "independent_cache": true,
     "reverse_mapping": true,
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "cache_capacity": 1024
   },
 "inbounds": [
