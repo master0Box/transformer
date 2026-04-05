@@ -104,7 +104,7 @@
     "default_domain_resolver": "localdns",
     "final": "🐠 漏网之鱼",
     "rules": [
-{ "action": "sniff" },
+      { "action": "sniff" },
       { "protocol": "dns", "action": "hijack-dns" },
       
       { "clash_mode": "direct", "outbound": "🎯 全球直连" },
