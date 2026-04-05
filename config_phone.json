@@ -31,7 +31,7 @@
       {
         "tag": "localdns",
         "type": "https",
-        "server": "dns.alidns.com",
+        "server": "doh.pub",
         "server_port": 443,
         "path": "/dns-query",
         "domain_resolver": "defaultdns"
