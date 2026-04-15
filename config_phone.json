@@ -111,10 +111,9 @@
       { "clash_mode": "global", "outbound": "GLOBAL" },
       
       { "domain": ["clash.razord.top", "yacd.metacubex.one", "d.metacubex.one", "zashboard"], "outbound": "🎯 全球直连" },
+      { "rule_set": "geosite-category-ads-all", "action": "reject" },
       { "ip_is_private": true, "outbound": "🎯 全球直连" },
       { "rule_set": ["geosite-private", "geoip-private"], "outbound": "🎯 全球直连" },
-
-      { "rule_set": "geosite-category-ads-all", "action": "reject" },
 
       { "domain_suffix": ["miui.com", "miwifi.com", "xiaomicp.com", "safebrowsing.googleapis.com"], "outbound": "🎯 全球直连" },
       { "rule_set": "geosite-apple", "outbound": "🍏 Apple" },
