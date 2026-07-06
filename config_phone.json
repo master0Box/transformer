@@ -100,6 +100,7 @@
     "rules": [
       { "action": "sniff" },
       { "type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns" },
+      { "type": "logical", "mode": "and", "rules": [{"protocol": "quic"}, {"rule_set": "geosite-!cn"}], "action": "reject" },
       { "ip_is_private": true, "outbound": "🎯 全球直连" },      
       { "clash_mode": "direct", "outbound": "🎯 全球直连" },
       { "clash_mode": "global", "outbound": "GLOBAL" },      
