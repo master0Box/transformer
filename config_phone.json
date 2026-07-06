@@ -29,7 +29,7 @@
         "tag": "localdns",
         "type": "udp",
         "server": "223.5.5.5",
-        "server_port": 53
+        "server_port": "53"
       },
       {
         "tag": "defaultdns",
@@ -61,8 +61,8 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "address": [ "172.19.0.1/30", "fdfe:dcba:9876::0/126" ],
-      "mtu": 1400,
+      "address": "172.19.0.1/30" ,
+      "mtu": 1450,
       "stack": "mixed",
       "strict_route": true,
       "auto_route": true,
