@@ -27,9 +27,10 @@
       },
       {
         "tag": "localdns",
-        "type": "udp",
+        "type": "https",
         "server": "223.5.5.5",
-        "server_port": 53
+        "server_port": 443,
+        "path": "/dns-query",
       },
       {
         "tag": "defaultdns",
