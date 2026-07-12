@@ -56,6 +56,7 @@
     "independent_cache": true,
     "reverse_mapping": true,
     "strategy": "ipv4_only",
+    "client_subnet": "223.5.5.0/24",
     "cache_capacity": 1024
   },
 "inbounds": [
@@ -96,13 +97,11 @@
     "rules": [
       { "action": "sniff" },
       { "type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns" },
-      { "protocol": "quic", "action": "reject" },
+      { "type": "logical", "mode": "and", "rules": [{"protocol": "quic"}, {"rule_set": "geosite-!cn"}], "action": "reject" },
       { "ip_is_private": true, "outbound": "🎯 全球直连" },      
       { "clash_mode": "direct", "outbound": "🎯 全球直连" },
-      { "clash_mode": "global", "outbound": "GLOBAL" },      
-      { "domain": ["clash.razord.top", "yacd.metacubex.one", "d.metacubex.one", "zashboard"], "outbound": "🎯 全球直连" },
+      { "clash_mode": "global", "outbound": "GLOBAL" },
       { "rule_set": "geosite-category-ads-all", "action": "reject" },
-      { "domain_suffix": ["miui.com", "miwifi.com", "xiaomicp.com", "safebrowsing.googleapis.com"], "outbound": "🎯 全球直连" },
       { "rule_set": "geosite-apple", "outbound": "🍏 Apple" },
       { "rule_set": "geosite-github", "outbound": "🚀 节点选择" },
       { "rule_set": "geosite-chat", "outbound": "🤖 OpenAI" },
