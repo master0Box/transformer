@@ -60,8 +60,8 @@
       "address": "172.19.0.1/30",
       "mtu": 1450,
       "stack": "mixed",
-      "strict_route": true,
-      "auto_route": false,
+      "strict_route": false,
+      "auto_route": true,
       "route_exclude_address": [
         "192.168.0.0/16",
         "10.0.0.0/8",
