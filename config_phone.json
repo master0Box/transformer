@@ -9,7 +9,7 @@
       "enabled": true
     },
   "clash_api": {
-    "external_controller": "0.0.0.0:9095",
+    "external_controller": "127.0.0.1:9095",
     "secret": "123456",
     "default_mode": "rule"
     }
@@ -33,10 +33,6 @@
         "path": "/dns-query"
       },
       {
-        "tag": "defaultdns",
-        "type": "local"
-      },
-      {
         "tag": "fakeip",
         "type": "fakeip",
         "inet4_range": "198.18.0.0/15"
@@ -53,10 +49,8 @@
     "final": "proxydns",
     "disable_cache": false,
     "disable_expire": false,
-    "independent_cache": true,
     "reverse_mapping": true,
     "strategy": "ipv4_only",
-    "client_subnet": "223.5.5.0/24",
     "cache_capacity": 1024
   },
 "inbounds": [
@@ -67,9 +61,8 @@
       "mtu": 1450,
       "stack": "mixed",
       "strict_route": true,
-      "auto_route": true,
+      "auto_route": false,
       "route_exclude_address": [
-        "2.0.0.0/8",
         "192.168.0.0/16",
         "10.0.0.0/8",
         "172.16.0.0/12"
