@@ -95,7 +95,7 @@
     "rules": [
       { "action": "sniff" },
       { "type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns" },
-      { "type": "logical", "mode": "and", "rules": [{"protocol": "quic"}, {"rule_set": "geosite-!cn"}], "action": "reject", , "no_drop": true },
+      { "type": "logical", "mode": "and", "rules": [{"protocol": "quic"}, {"rule_set": "geosite-!cn"}], "action": "reject", "no_drop": true },
       { "network": "icmp", "action": "resolve" },
       { "network": "icmp", "outbound": "🎯 全球直连" },
       { "ip_is_private": true, "outbound": "🎯 全球直连" },      
