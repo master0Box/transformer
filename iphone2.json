@@ -176,7 +176,6 @@
         "fd00::1/126"
       ],
       "auto_route": true,
-      #"strict_route": true,
       "endpoint_independent_nat": true,
       "stack": "system",
       "sniff": true,
