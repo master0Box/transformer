@@ -182,6 +182,19 @@
       "sniff_override_destination": true
     }
   ],
+    "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": ["{all}", "direct"],
+      "default": "direct",
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
   "route": {
     "rules": [
       {
