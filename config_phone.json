@@ -39,8 +39,7 @@
       {
         "tag": "fakeip",
         "type": "fakeip",
-        "inet4_range": "198.19.0.0/16",
-        "inet6_range": "2001:db8::/32"
+        "inet4_range": "198.19.0.0/16"
       }
     ],
     "rules": [
@@ -55,14 +54,14 @@
     "disable_cache": false,
     "disable_expire": false,
     "reverse_mapping": true,
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "cache_capacity": 1024
   },
 "inbounds": [
     {
       "type": "tun",
       "tag": "tun-in",
-      "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"],
+      "address": "172.19.0.1/30",
       "mtu": 1450,
       "stack": "mixed",
       "strict_route": false,
