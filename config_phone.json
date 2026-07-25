@@ -39,7 +39,7 @@
       {
         "tag": "fakeip",
         "type": "fakeip",
-        "inet4_range": "198.19.0.0/16", 
+        "inet4_range": "198.19.0.0/16",
         "inet6_range": "2001:db8::/32"
       }
     ],
