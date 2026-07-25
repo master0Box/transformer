@@ -4,7 +4,7 @@
     "level": "info",
     "timestamp": true
   },
-    "ntp": {
+  "ntp": {
     "enabled": true,
     "server": "time.apple.com"
   },
