@@ -177,8 +177,7 @@
       ],
       "auto_route": true,
       "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff_override_destination": true
+      "stack": "system"
     }
   ],
     "outbounds": [
