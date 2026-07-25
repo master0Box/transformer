@@ -4,6 +4,10 @@
     "level": "info",
     "timestamp": true
   },
+    "ntp": {
+    "enabled": true,
+    "server": "time.apple.com"
+  },
   "experimental": {
     "cache_file": {
       "enabled": true
@@ -35,7 +39,8 @@
       {
         "tag": "fakeip",
         "type": "fakeip",
-        "inet4_range": "198.18.0.0/15"
+        "inet4_range": "198.19.0.0/16", 
+        "inet6_range": "2001:db8::/32"
       }
     ],
     "rules": [
@@ -50,14 +55,14 @@
     "disable_cache": false,
     "disable_expire": false,
     "reverse_mapping": true,
-    "strategy": "ipv4_only",
+    "strategy": "prefer_ipv4",
     "cache_capacity": 1024
   },
 "inbounds": [
     {
       "type": "tun",
       "tag": "tun-in",
-      "address": "172.19.0.1/30",
+      "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"],
       "mtu": 1450,
       "stack": "mixed",
       "strict_route": false,
@@ -90,7 +95,9 @@
     "rules": [
       { "action": "sniff" },
       { "type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns" },
-      { "type": "logical", "mode": "and", "rules": [{"protocol": "quic"}, {"rule_set": "geosite-!cn"}], "action": "reject" },
+      { "type": "logical", "mode": "and", "rules": [{"protocol": "quic"}, {"rule_set": "geosite-!cn"}], "action": "reject", , "no_drop": true },
+      { "network": "icmp", "action": "resolve" },
+      { "network": "icmp", "outbound": "🎯 全球直连" },
       { "ip_is_private": true, "outbound": "🎯 全球直连" },      
       { "clash_mode": "direct", "outbound": "🎯 全球直连" },
       { "clash_mode": "global", "outbound": "GLOBAL" },
