@@ -1,0 +1,445 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "bootstrap",
+        "address": "223.5.5.5",
+        "detour": "direct"
+      },
+      {
+        "tag": "local",
+        "address": "223.5.5.5",
+        "detour": "direct"
+      },
+      {
+        "tag": "local-backup",
+        "address": "119.29.29.29",
+        "detour": "direct"
+      },
+      {
+        "tag": "remote",
+        "address": "https://1.1.1.1/dns-query",
+        "address_resolver": "bootstrap",
+        "detour": "proxy"
+      },
+      {
+        "tag": "fakeip",
+        "address": "fakeip"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": "geosite-category-ads-all",
+        "action": "reject"
+      },
+      {
+        "domain": [
+          "localhost"
+        ],
+        "domain_suffix": [
+          "lan",
+          "local",
+          "localdomain",
+          "home.arpa"
+        ],
+        "action": "route",
+        "server": "local"
+      },
+      {
+        "domain_suffix": [
+          "bing.com",
+          "copilot.microsoft.com",
+          "copilot.cloud.microsoft",
+          "githubcopilot.com",
+          "tv.apple.com",
+          "news.apple.com",
+          "openai.com",
+          "chatgpt.com",
+          "anthropic.com",
+          "claude.ai",
+          "google.com",
+          "googleapis.com",
+          "googleapis.cn",
+          "gstatic.com",
+          "gvt1.com",
+          "gvt2.com",
+          "gvt3.com",
+          "googleusercontent.com",
+          "ggpht.com",
+          "android.com",
+          "xn--ngstr-lra8j.com"
+        ],
+        "action": "route",
+        "server": "fakeip"
+      },
+      {
+        "rule_set": [
+          "geosite-openai",
+          "geosite-google",
+          "geosite-youtube",
+          "geosite-telegram",
+          "geosite-github"
+        ],
+        "action": "route",
+        "server": "fakeip"
+      },
+      {
+        "domain_suffix": [
+          "doubao.com",
+          "volces.com",
+          "volcengine.com",
+          "douyin.com",
+          "douyincdn.com",
+          "douyinpic.com",
+          "douyinstatic.com",
+          "douyinliving.com",
+          "amemv.com",
+          "snssdk.com",
+          "byteimg.com",
+          "pstatp.com",
+          "ixigua.com",
+          "toutiao.com",
+          "bytedance.com",
+          "xiaohongshu.com",
+          "xhscdn.com",
+          "xhscdn.net",
+          "xhslink.com",
+          "xhsimg.com",
+          "bilibili.com",
+          "hdslb.com",
+          "kuaishou.com",
+          "ksyuncdn.com",
+          "qq.com",
+          "tencent.com",
+          "wechat.com",
+          "weixin.qq.com",
+          "alipay.com",
+          "alicdn.com",
+          "aliyun.com",
+          "taobao.com",
+          "tmall.com",
+          "jd.com",
+          "360buyimg.com",
+          "baidu.com",
+          "bdstatic.com",
+          "bcebos.com",
+          "163.com",
+          "126.net",
+          "netease.com",
+          "sina.com.cn",
+          "weibo.com",
+          "amap.com",
+          "meituan.com",
+          "mi.com",
+          "xiaomi.com"
+        ],
+        "action": "route",
+        "server": "local"
+      },
+      {
+        "rule_set": [
+          "geosite-private",
+          "geosite-cn",
+          "geosite-geolocation-cn",
+          "geosite-apple",
+          "geosite-microsoft"
+        ],
+        "action": "route",
+        "server": "local"
+      }
+    ],
+    "final": "remote",
+    "strategy": "prefer_ipv4",
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    }
+  },
+  "ntp": {
+    "enabled": true,
+    "server": "ntp.aliyun.com",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "direct"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "address": [
+        "172.19.0.1/30",
+        "fd00::1/126"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true,
+      "sniff_override_destination": true
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "network": "udp",
+        "port": 53,
+        "action": "hijack-dns"
+      },
+      {
+        "network": "tcp",
+        "port": 53,
+        "action": "hijack-dns"
+      },
+      {
+        "ip_cidr": [
+          "198.18.0.0/15",
+          "fc00::/18"
+        ],
+        "action": "route",
+        "outbound": "proxy"
+      },
+      {
+        "ip_cidr": [
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10",
+          "ff00::/8",
+          "224.0.0.0/4",
+          "240.0.0.0/4"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "action": "reject"
+      },
+      {
+        "domain_suffix": [
+          "doubao.com",
+          "volces.com",
+          "volcengine.com",
+          "douyin.com",
+          "douyincdn.com",
+          "douyinpic.com",
+          "douyinstatic.com",
+          "douyinliving.com",
+          "amemv.com",
+          "snssdk.com",
+          "byteimg.com",
+          "pstatp.com",
+          "ixigua.com",
+          "toutiao.com",
+          "bytedance.com",
+          "xiaohongshu.com",
+          "xhscdn.com",
+          "xhscdn.net",
+          "xhslink.com",
+          "xhsimg.com",
+          "bilibili.com",
+          "hdslb.com",
+          "kuaishou.com",
+          "ksyuncdn.com",
+          "qq.com",
+          "tencent.com",
+          "wechat.com",
+          "weixin.qq.com",
+          "alipay.com",
+          "alicdn.com",
+          "aliyun.com",
+          "taobao.com",
+          "tmall.com",
+          "jd.com",
+          "360buyimg.com",
+          "baidu.com",
+          "bdstatic.com",
+          "bcebos.com",
+          "163.com",
+          "126.net",
+          "netease.com",
+          "sina.com.cn",
+          "weibo.com",
+          "amap.com",
+          "meituan.com",
+          "mi.com",
+          "xiaomi.com"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geosite-private",
+          "geosite-cn",
+          "geosite-geolocation-cn",
+          "geosite-apple",
+          "geosite-microsoft"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geoip-cn",
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "protocol": "bittorrent",
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "protocol": "quic",
+        "action": "reject"
+      },
+      {
+        "domain_suffix": [
+          "bing.com",
+          "copilot.microsoft.com",
+          "copilot.cloud.microsoft",
+          "githubcopilot.com",
+          "tv.apple.com",
+          "news.apple.com",
+          "openai.com",
+          "chatgpt.com",
+          "anthropic.com",
+          "claude.ai",
+          "google.com",
+          "googleapis.com",
+          "googleapis.cn",
+          "gstatic.com",
+          "gvt1.com",
+          "gvt2.com",
+          "gvt3.com",
+          "googleusercontent.com",
+          "ggpht.com",
+          "android.com",
+          "xn--ngstr-lra8j.com"
+        ],
+        "action": "route",
+        "outbound": "proxy"
+      },
+      {
+        "rule_set": [
+          "geosite-openai",
+          "geosite-google",
+          "geosite-youtube",
+          "geosite-telegram",
+          "geosite-github"
+        ],
+        "action": "route",
+        "outbound": "proxy"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-category-ads-all.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-private.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-openai",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-openai.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-google.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-youtube",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-youtube.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-telegram.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-github",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-github.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-apple",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-apple.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-microsoft",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-microsoft.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-geolocation-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-geolocation-cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/SagerNet/sing-geoip@rule-set/geoip-cn.srs",
+        "download_detour": "direct"
+      }
+    ],
+    "final": "proxy",
+    "auto_detect_interface": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
+  }
+}
