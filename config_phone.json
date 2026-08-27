@@ -116,7 +116,7 @@
       { "rule_set": "geoip-telegram", "outbound": "📲 Telegram" },
       { "rule_set": "geoip-cn", "outbound": "🎯 全球直连" }
     ],
-    "rule_set": [
+      "rule_set": [
       { "tag": "geosite-microsoft", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/microsoft.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-github", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/github.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-chat", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ai-!cn.srs", "download_detour": "🎯 全球直连" },
