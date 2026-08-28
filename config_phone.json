@@ -136,7 +136,7 @@
       { "tag": "geosite-private", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs" },
       { "tag": "geosite-category-ads-all", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs" },      
       { "tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/telegram.srs" },
-      { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs" ,
+      { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs" },
       { "tag": "geosite-!cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs" },
       { "tag": "geoip-private", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs" }
     ]
