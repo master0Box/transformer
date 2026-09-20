@@ -89,8 +89,7 @@
 ],
 "http_clients": [
   {
-    "tag": "rule-set-download",
-    "detour": "🎯 全球直连"
+    "tag": "rule-set-download"
   }
 ],
 "route": {
