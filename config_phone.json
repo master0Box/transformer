@@ -1,4 +1,5 @@
 {
+  "$schema": "https://sing-box.sagernet.org/schema.json",
   "log": {
     "disabled": false,
     "level": "info",
@@ -34,7 +35,8 @@
         "type": "https",
         "server": "223.5.5.5",
         "server_port": 443,
-        "path": "/dns-query"
+        "path": "/dns-query",
+        "prefer_go": true
       },
       {
         "tag": "fakeip",
@@ -43,9 +45,9 @@
       }
     ],
     "rules": [
+      { "query_type": ["HTTPS", "SVCB"], "action": "reject" },
       { "clash_mode": "direct", "server": "localdns" },
       { "clash_mode": "global", "server": "proxydns" },
-      { "query_type": ["HTTPS", "SVCB"], "action": "reject" },
       { "domain_suffix": ["xn--ngstr-lra8j.com", "services.googleapis.cn", "gstatic.com"], "server": "proxydns" },
       { "rule_set": ["geosite-cn", "geosite-private"], "server": "localdns" },
       { "query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1 }
@@ -55,7 +57,7 @@
     "disable_expire": false,
     "reverse_mapping": true,
     "strategy": "ipv4_only",
-    "cache_capacity": 1024
+    "cache_capacity": 8192
   },
   "inbounds": [
     {
@@ -63,7 +65,6 @@
       "tag": "tun-in",
       "address": "172.19.0.1/30",
       "mtu": 1450,
-      "stack": "mixed",
       "strict_route": false,
       "auto_route": true,
       "route_exclude_address": [
@@ -109,7 +110,7 @@
       { "rule_set": "geosite-category-ads-all", "action": "reject" },
       { "rule_set": "geosite-apple", "outbound": "🍏 Apple" },
       { "rule_set": "geosite-github", "outbound": "🚀 节点选择" },
-      { "rule_set": "geosite-chat", "outbound": "🤖 OpenAI" },
+      { "rule_set": "geosite-category-ai-!cn", "outbound": "🤖 OpenAI" },
       { "rule_set": "geosite-google", "outbound": "🍀 Google" },
       { "rule_set": "geosite-netflix", "outbound": "🎥 Netflix" },
       { "rule_set": "geosite-telegram", "outbound": "📲 Telegram" },
@@ -123,21 +124,10 @@
       { "rule_set": "geoip-cn", "outbound": "🎯 全球直连" }
     ],
     "rule_set": [
-      { "tag": "geosite-microsoft", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/microsoft.srs" },
-      { "tag": "geosite-github", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/github.srs" },
-      { "tag": "geosite-chat", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ai-!cn.srs" },
-      { "tag": "geosite-google", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs" },
-      { "tag": "geosite-telegram", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/telegram.srs" },
-      { "tag": "geosite-netflix", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/netflix.srs" },
-      { "tag": "geosite-apple", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/apple.srs" },
-      { "tag": "geosite-geolocation-!cn", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs" },
-      { "tag": "geosite-cn", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs" },
-      { "tag": "geosite-private", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs" },
-      { "tag": "geosite-category-ads-all", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs" },      
-      { "tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/telegram.srs" },
-      { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs" },
-      { "tag": "geosite-!cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs" },
-      { "tag": "geoip-private", "type": "remote", "format": "binary", "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs" }
-    ]
+      {"tag": ["fakeipfilter-cn", "fakeipfilter-!cn"], "type": "remote", "format": "source", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/{tag}.json"},
+        {"tag": ["geosite-category-ai-!cn", "geosite-youtube", "geosite-google", "geosite-github", "geosite-onedrive", "geosite-microsoft", "geosite-microsoft@cn","geosite-apple", "geosite-apple@cn", "geosite-telegram", "geosite-tiktok", "geosite-netflix", "geosite-paypal", "geosite-binance", "geosite-okx", "geosite-category-cryptocurrency", "geosite-steam@cn", "geosite-steam", "geosite-geolocation-!cn", "geosite-cn", "geosite-private", "geosite-category-ads-all"], "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/{tag}.srs"},
+      {"tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs"},
+      {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"}
+    ],
   }
 }
