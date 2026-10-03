@@ -4,6 +4,9 @@
     "level": "info",
     "timestamp": true
   },
+    "certificate": {
+    "store": "chrome"
+  },
   "ntp": {
     "enabled": true,
     "server": "time.apple.com"
