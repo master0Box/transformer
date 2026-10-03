@@ -63,7 +63,6 @@
       "tag": "tun-in",
       "address": "172.19.0.1/30",
       "mtu": 1450,
-      "stack": "mixed",
       "strict_route": false,
       "auto_route": true,
       "route_exclude_address": [
@@ -129,6 +128,6 @@
       "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/{tag}.srs" },
       { "tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs" },
       { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs" }
-    ],
+    ]
   }
 }
