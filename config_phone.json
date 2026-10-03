@@ -47,8 +47,8 @@
     ],
     "rules": [
       { "query_type": ["HTTPS", "SVCB"], "action": "reject" },
-      { "clash_mode": "direct", "server": "localdns" },
-      { "clash_mode": "global", "server": "proxydns" },
+      { "clash_mode": "Direct", "server": "localdns" },
+      { "clash_mode": "Global", "server": "proxydns" },
       { "rule_set": ["fakeipfilter-cn", "geosite-cn", "geosite-private"], "server": "localdns" },
       { "rule_set": "fakeipfilter-!cn", "server": "proxydns" },
       { "type": "logical", "mode": "and", "rules": [{"query_type": ["A", "AAAA"]},{"rule_set": "geosite-geolocation-!cn",
