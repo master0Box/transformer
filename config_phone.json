@@ -50,9 +50,10 @@
       { "clash_mode": "direct", "server": "localdns" },
       { "clash_mode": "global", "server": "proxydns" },
       { "rule_set": ["fakeipfilter-cn", "geosite-cn", "geosite-private"], "server": "localdns" },
+      { "rule_set": "fakeipfilter-!cn", "server": "proxydns" },
       { "type": "logical", "mode": "and", "rules": [{"query_type": ["A", "AAAA"]},{"rule_set": "geosite-geolocation-!cn",
         "invert": true}], "action": "evaluate", "server": "proxydns", "client_subnet": "223.5.5.0/24","timeout": "2s" },
-      { "match_response": true, "rule_set": "geoip-cn", "server": "ali" },
+      { "match_response": true, "rule_set": "geoip-cn", "server": "localdns" },
       { "query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1 }
     ],
     "final": "proxydns",
