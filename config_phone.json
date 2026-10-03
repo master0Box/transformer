@@ -63,6 +63,7 @@
       "tag": "tun-in",
       "address": "172.19.0.1/30",
       "mtu": 1450,
+      "stack": "mixed",
       "strict_route": false,
       "auto_route": true,
       "route_exclude_address": [
