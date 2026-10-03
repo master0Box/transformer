@@ -76,6 +76,19 @@
         "10.0.0.0/8",
         "172.16.0.0/12"
       ]
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 7890
+        }
+      }
+    },
+    {
+      "tag": "mixed-in",
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 7890
     }
   ],
 "outbounds": [
@@ -122,7 +135,7 @@
       { "rule_set": "geosite-geolocation-!cn", "outbound": "🚀 节点选择" },
       { "rule_set": "geosite-private", "outbound": "🎯 全球直连" },
       { "rule_set": "geosite-cn", "outbound": "🎯 全球直连" },      
-      { "action": "resolve" },
+      { "inbound": "mixed-in", "action": "resolve" },
       { "rule_set": "geoip-telegram", "outbound": "📲 Telegram" },
       { "rule_set": "geoip-cn", "outbound": "🎯 全球直连" }
     ],
