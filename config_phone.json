@@ -118,7 +118,6 @@
       { "rule_set": "geosite-private", "outbound": "🎯 全球直连" },
       { "rule_set": "geosite-cn", "outbound": "🎯 全球直连" },      
       { "action": "resolve" },
-      { "rule_set": "geoip-private", "outbound": "🎯 全球直连" },
       { "rule_set": "geoip-telegram", "outbound": "📲 Telegram" },
       { "rule_set": "geoip-cn", "outbound": "🎯 全球直连" }
     ],
