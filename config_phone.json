@@ -18,7 +18,7 @@
   "clash_api": {
     "external_controller": "127.0.0.1:9095",
     "secret": "123456",
-    "default_mode": "rule"
+    "default_mode": "Rule"
     }
   },
   "dns": {
