@@ -53,9 +53,8 @@
       { "query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1 }
     ],
     "final": "proxydns",
-    "disable_cache": false,
-    "disable_expire": false,
     "reverse_mapping": true,
+    "optimistic": {"enabled": true},
     "strategy": "ipv4_only",
     "cache_capacity": 8192
   },
