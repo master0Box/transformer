@@ -106,9 +106,9 @@
   }
 ],
 "route": {
+    "final": "🐠 漏网之鱼",
     "auto_detect_interface": true,
     "default_domain_resolver": "localdns",
-    "final": "🐠 漏网之鱼",
     "default_http_client": "rule-set-download",
     "rules": [
       { "type": "logical", "mode": "or", "rules": [{"domain_suffix": "push.apple.com"}, {"rule_set": "geoip-telegram"}], "invert": true, "action": "sniff", "sniffer": ["http", "tls", "stun", "quic", "dns"], "timeout": "100ms" },
@@ -121,14 +121,15 @@
       { "clash_mode": "Global", "outbound": "GLOBAL" },
       { "rule_set": "geosite-category-ads-all", "action": "reject" },
       { "rule_set": "geosite-private", "outbound": "🎯 全球直连" },
+      { "rule_set": "geosite-apple@cn", "outbound": "🎯 全球直连 },
       { "rule_set": "geosite-apple", "outbound": "🍏 Apple" },
       { "rule_set": "geosite-microsoft", "outbound": "🚀 节点选择"},
       { "rule_set": "geosite-microsoft@cn", "outbound": "🎯 全球直连"},
       { "rule_set": "geosite-github", "outbound": "🚀 节点选择" },
-      { "rule_set": "geosite-category-ai-!cn", "outbound": "🤖 OpenAI" },
-      { "rule_set": "geosite-google", "outbound": "🍀 Google" },
       { "rule_set": "geosite-netflix", "outbound": "🎥 Netflix" },
       { "rule_set": "geosite-telegram", "outbound": "📲 Telegram" },
+      { "rule_set": "geosite-category-ai-!cn", "outbound": "🤖 OpenAI" },
+      { "rule_set": "geosite-google", "outbound": "🍀 Google" },
       { "rule_set": "geosite-geolocation-!cn", "outbound": "🚀 节点选择" },
       { "inbound": "mixed-in", "action": "resolve" },
       { "rule_set": "geoip-telegram", "outbound": "📲 Telegram" },
