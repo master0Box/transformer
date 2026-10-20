@@ -8,10 +8,6 @@
     "certificate": {
     "store": "chrome"
   },
-  "ntp": {
-    "enabled": true,
-    "server": "time.apple.com"
-  },
   "experimental": {
     "cache_file": {
       "enabled": true
