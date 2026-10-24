@@ -99,7 +99,7 @@
     { "tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🚀 节点选择", "🎯 全球直连", "{all}"] },
     { "tag": "GLOBAL", "type": "selector", "outbounds": ["{all}"] },
     { "tag": "🎯 全球直连", "type": "direct" },
-    { "tag": "桥接","type": "bridge" }
+    { "tag": "桥接", "type": "bridge" }
 ],
 "http_clients": [
   {
